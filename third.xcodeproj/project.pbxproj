@@ -21,6 +21,7 @@
 		2E6186B4192EA1C400FD2515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E618696192EA1C400FD2515 /* UIKit.framework */; };
 		2E6186BC192EA1C400FD2515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E6186BA192EA1C400FD2515 /* InfoPlist.strings */; };
 		2E6186BE192EA1C400FD2515 /* thirdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6186BD192EA1C400FD2515 /* thirdTests.m */; };
+		2E6186C9192EA5C600FD2515 /* SmartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6186C8192EA5C600FD2515 /* SmartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		2E6186B9192EA1C400FD2515 /* thirdTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "thirdTests-Info.plist"; sourceTree = "<group>"; };
 		2E6186BB192EA1C400FD2515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E6186BD192EA1C400FD2515 /* thirdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thirdTests.m; sourceTree = "<group>"; };
+		2E6186C7192EA5C600FD2515 /* SmartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartView.h; path = Views/SmartView.h; sourceTree = "<group>"; };
+		2E6186C8192EA5C600FD2515 /* SmartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartView.m; path = Views/SmartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		2E618698192EA1C400FD2515 /* third */ = {
 			isa = PBXGroup;
 			children = (
+				2E6186CA192EA5CA00FD2515 /* Views */,
 				2E6186A4192EA1C400FD2515 /* Main.storyboard */,
 				2E6186A7192EA1C400FD2515 /* ViewController.h */,
 				2E6186A8192EA1C400FD2515 /* ViewController.m */,
@@ -150,6 +154,15 @@
 				2E6186BA192EA1C400FD2515 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E6186CA192EA5CA00FD2515 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E6186C7192EA5C600FD2515 /* SmartView.h */,
+				2E6186C8192EA5C600FD2515 /* SmartView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6186C9192EA5C600FD2515 /* SmartView.m in Sources */,
 				2E6186A9192EA1C400FD2515 /* ViewController.m in Sources */,
 				2E6186A3192EA1C400FD2515 /* AppDelegate.m in Sources */,
 				2E61869F192EA1C400FD2515 /* main.m in Sources */,

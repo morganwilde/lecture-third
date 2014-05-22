@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Views/SmartView.h"
 
 @interface ViewController ()
 
@@ -17,13 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	// Customize a SmartView
+    SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"top": @0,
+                                                              @"left": @0,
+                                                              @"width": @"50%",
+                                                              @"height": @"50%"}
+                                                   inParent:self.view];
+    // Add it to the view hierarchy
+    [self.view addSubview:smartView];
 }
 
 @end
