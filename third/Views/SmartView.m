@@ -23,24 +23,14 @@
     // Check for properties that define the frame
     // Position
     if ([style objectForKey:@"left"]) {
-        x = [style[@"left"] floatValue];
+        x = [self parseFloat:style[@"left"] relativeTo:widthParent];
     }
     if ([style objectForKey:@"top"]) {
-        y = [style[@"top"] floatValue];
+        y = [self parseFloat:style[@"top"] relativeTo:heightParent];
     }
     // Size
     if ([style objectForKey:@"width"]) {
-        if ([style[@"width"] isKindOfClass:[NSString class]]) {
-            NSString *string = (NSString *)style[@"width"];
-            if ([string rangeOfString:@"%"].location != NSNotFound) {
-                CGFloat percent = [string floatValue];
-                width = widthParent * percent/100;
-            } else {
-                width = [style[@"width"] floatValue];
-            }
-        } else if ([style[@"width"] isKindOfClass:[NSNumber class]]) {
-            width = [style[@"width"] floatValue];
-        }
+        width = [self parseFloat:style[@"width"] relativeTo:widthParent];
     }
     if ([style objectForKey:@"height"]) {
         height = [self parseFloat:style[@"height"] relativeTo:heightParent];

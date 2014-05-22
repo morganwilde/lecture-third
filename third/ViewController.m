@@ -19,8 +19,8 @@
 {
     [super viewDidLoad];
 	// Customize a SmartView
-    SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"top": @0,
-                                                              @"left": @0,
+    SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"top": @"50%",
+                                                              @"left": @"50%",
                                                               @"width": @"50%",
                                                               @"height": @"50%"}
                                                    inParent:self.view];
