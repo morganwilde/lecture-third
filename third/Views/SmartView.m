@@ -35,6 +35,37 @@
     if ([style objectForKey:@"height"]) {
         height = [self parseFloat:style[@"height"] relativeTo:heightParent];
     }
+    // Alignment
+    if ([style objectForKey:@"align-horizontally"]) {
+        switch ([style[@"align-horizontally"] intValue]) {
+            case LEFT:
+                x = 0;
+                break;
+            case CENTER:
+                x = widthParent/2 - width/2;
+                break;
+            case RIGHT:
+                x = widthParent - width;
+                break;
+            default:
+                break;
+        }
+    }
+    if ([style objectForKey:@"align-vertically"]) {
+        switch ([style[@"align-vertically"] intValue]) {
+            case TOP:
+                y = 0;
+                break;
+            case MIDDLE:
+                y = heightParent/2 - height/2;
+                break;
+            case BOTTOM:
+                y = heightParent - height;
+                break;
+            default:
+                break;
+        }
+    }
     // Init the view
     CGRect viewFrame = CGRectMake(x, y, width, height);
     self = [super initWithFrame:viewFrame];

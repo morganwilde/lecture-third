@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, alignmentHorizontal) {
+    LEFT,
+    CENTER,
+    RIGHT
+};
+typedef NS_ENUM(NSInteger, alignmentVertical) {
+    TOP,
+    MIDDLE,
+    BOTTOM
+};
+
 @interface SmartView : UIView
 
 @property (strong, nonatomic) UIView *parent;

@@ -22,7 +22,9 @@
     SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"top": @"50%",
                                                               @"left": @"50%",
                                                               @"width": @"50%",
-                                                              @"height": @"50%"}
+                                                              @"height": @"50%",
+                                                              @"align-vertically": [NSNumber numberWithInt:MIDDLE],
+                                                              @"align-horizontally": [NSNumber numberWithInt:CENTER]}
                                                    inParent:self.view];
     // Add it to the view hierarchy
     [self.view addSubview:smartView];
