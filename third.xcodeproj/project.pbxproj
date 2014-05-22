@@ -112,12 +112,9 @@
 		2E618698192EA1C400FD2515 /* third */ = {
 			isa = PBXGroup;
 			children = (
-				2E6186A1192EA1C400FD2515 /* AppDelegate.h */,
-				2E6186A2192EA1C400FD2515 /* AppDelegate.m */,
 				2E6186A4192EA1C400FD2515 /* Main.storyboard */,
 				2E6186A7192EA1C400FD2515 /* ViewController.h */,
 				2E6186A8192EA1C400FD2515 /* ViewController.m */,
-				2E6186AA192EA1C400FD2515 /* Images.xcassets */,
 				2E618699192EA1C400FD2515 /* Supporting Files */,
 			);
 			path = third;
@@ -126,6 +123,9 @@
 		2E618699192EA1C400FD2515 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2E6186A1192EA1C400FD2515 /* AppDelegate.h */,
+				2E6186A2192EA1C400FD2515 /* AppDelegate.m */,
+				2E6186AA192EA1C400FD2515 /* Images.xcassets */,
 				2E61869A192EA1C400FD2515 /* third-Info.plist */,
 				2E61869B192EA1C400FD2515 /* InfoPlist.strings */,
 				2E61869E192EA1C400FD2515 /* main.m */,
@@ -199,6 +199,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = morganwilde;
 				TargetAttributes = {
+					2E61868E192EA1C400FD2515 = {
+						DevelopmentTeam = 3XUGAGS63P;
+					};
 					2E6186AF192EA1C400FD2515 = {
 						TestTargetID = 2E61868E192EA1C400FD2515;
 					};
@@ -376,10 +379,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "third/third-Prefix.pch";
 				INFOPLIST_FILE = "third/third-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,10 +395,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "third/third-Prefix.pch";
 				INFOPLIST_FILE = "third/third-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
