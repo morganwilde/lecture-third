@@ -21,6 +21,24 @@
     }
     return self;
 }
+- (void)realignToSiblings
+{
+    int order = 0;
+    int orderSelf = 0;
+    int left = 0;
+    for (UIView *sibling in self.parent.subviews) {
+        if (sibling != self && orderSelf == 0) {
+            orderSelf = order;
+        }
+        if (sibling == self) {
+            orderSelf = order;
+        }
+        if (order < orderSelf) {
+            left += sibling.frame.origin.x + sibling.frame.size.width;
+        }
+        order++;
+    }
+}
 - (void)changeStyle:(NSString *)key with:(id)value
 {
     if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {

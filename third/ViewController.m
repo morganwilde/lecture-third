@@ -21,16 +21,26 @@
 {
     [super viewDidLoad];
 	// Customize a SmartView
-    SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"top": @"50%",
-                                                              @"left": @"50%",
-                                                              @"width": @"50%",
+    SmartView *smartView = [[SmartView alloc] initWithStyle:@{@"width": @"25%",
                                                               @"height": @"50%",
                                                               @"align-vertically": [NSNumber numberWithInt:MIDDLE],
-                                                              @"align-horizontally": [NSNumber numberWithInt:CENTER]}
+                                                              @"align-horizontally": [NSNumber numberWithInt:LEFT]}
                                                    inParent:self.view];
+    SmartView *thinkView = [[SmartView alloc] initWithStyle:@{@"width": @"25%",
+                                                              @"height": @"50%",
+                                                              @"align-vertically": [NSNumber numberWithInt:MIDDLE],
+                                                              @"align-horizontally": [NSNumber numberWithInt:LEFT]}
+                                                   inParent:self.view];
+    NSArray *smartViews = @[smartView, thinkView];
     self.test = smartView;
     // Add it to the view hierarchy
-    [self.view addSubview:smartView];
+    for (SmartView *subview in smartViews) {
+        [self.view addSubview:subview];
+    }
+    // Realign them
+    for (SmartView *subview in smartViews) {
+        [subview realignToSiblings];
+    }
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

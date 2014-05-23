@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, alignmentVertical) {
 @property (strong, nonatomic) NSMutableDictionary *style;
 
 - (id)initWithStyle:(NSDictionary *)style inParent:(UIView *)parent;
+- (void)realignToSiblings;
 - (void)changeStyle:(NSString *)key with:(id)value;
 + (CGFloat)parseFloat:(id)input relativeTo:(CGFloat)size;
 + (CGRect)frameFromStyle:(NSDictionary *)style inParent:(UIView *)parent;
