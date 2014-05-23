@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) SmartView *test;
+
 @end
 
 @implementation ViewController
@@ -26,8 +28,14 @@
                                                               @"align-vertically": [NSNumber numberWithInt:MIDDLE],
                                                               @"align-horizontally": [NSNumber numberWithInt:CENTER]}
                                                    inParent:self.view];
+    self.test = smartView;
     // Add it to the view hierarchy
     [self.view addSubview:smartView];
+}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.test changeStyle:@"align-vertically" with:[NSNumber numberWithInt:BOTTOM]];
+    [self.test changeStyle:@"width" with:@"100%"];
 }
 
 @end

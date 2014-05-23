@@ -12,6 +12,39 @@
 
 - (id)initWithStyle:(NSDictionary *)style inParent:(UIView *)parent
 {
+    CGRect viewFrame = [SmartView frameFromStyle:style inParent:parent];
+    self = [super initWithFrame:viewFrame];
+    if (self) {
+        self.parent = parent;
+        self.style = [NSMutableDictionary dictionaryWithDictionary:style];
+        self.backgroundColor = [UIColor redColor];
+    }
+    return self;
+}
+- (void)changeStyle:(NSString *)key with:(id)value
+{
+    if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {
+        self.style[key] = value;
+        self.frame = [SmartView frameFromStyle:self.style inParent:self.parent];
+        [self setNeedsDisplay];
+    } else {
+        NSLog(@"value is not of valid type.");
+    }
+}
++ (CGFloat)parseFloat:(id)input relativeTo:(CGFloat)size
+{
+    CGFloat value = 0.0f;
+    if ([input isKindOfClass:[NSString class]]) {
+        if ([input rangeOfString:@"%"].location != NSNotFound) {
+            value = size * [input floatValue]/100;
+        }
+    } else if ([input respondsToSelector:@selector(floatValue)]) {
+        value = [input floatValue];
+    }
+    return value;
+}
++ (CGRect)frameFromStyle:(NSDictionary *)style inParent:(UIView *)parent
+{
     // Parent frame details
     CGFloat widthParent     = parent.frame.size.width;
     CGFloat heightParent    = parent.frame.size.height;
@@ -23,17 +56,17 @@
     // Check for properties that define the frame
     // Position
     if ([style objectForKey:@"left"]) {
-        x = [self parseFloat:style[@"left"] relativeTo:widthParent];
+        x = [SmartView parseFloat:style[@"left"] relativeTo:widthParent];
     }
     if ([style objectForKey:@"top"]) {
-        y = [self parseFloat:style[@"top"] relativeTo:heightParent];
+        y = [SmartView parseFloat:style[@"top"] relativeTo:heightParent];
     }
     // Size
     if ([style objectForKey:@"width"]) {
-        width = [self parseFloat:style[@"width"] relativeTo:widthParent];
+        width = [SmartView parseFloat:style[@"width"] relativeTo:widthParent];
     }
     if ([style objectForKey:@"height"]) {
-        height = [self parseFloat:style[@"height"] relativeTo:heightParent];
+        height = [SmartView parseFloat:style[@"height"] relativeTo:heightParent];
     }
     // Alignment
     if ([style objectForKey:@"align-horizontally"]) {
@@ -67,26 +100,7 @@
         }
     }
     // Init the view
-    CGRect viewFrame = CGRectMake(x, y, width, height);
-    self = [super initWithFrame:viewFrame];
-    if (self) {
-        self.parent = parent;
-        self.style = [NSMutableDictionary dictionaryWithDictionary:style];
-        self.backgroundColor = [UIColor redColor];
-    }
-    return self;
-}
-- (CGFloat)parseFloat:(id)input relativeTo:(CGFloat)size
-{
-    CGFloat value = 0.0f;
-    if ([input isKindOfClass:[NSString class]]) {
-        if ([input rangeOfString:@"%"].location != NSNotFound) {
-            value = size * [input floatValue]/100;
-        }
-    } else if ([input respondsToSelector:@selector(floatValue)]) {
-        value = [input floatValue];
-    }
-    return value;
+    return CGRectMake(x, y, width, height);
 }
 
 /*
